@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+@import url(./sanitize.css);
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Noto Sans Japanese', serif;
+  font-size: 1.2rem;
+  width: 640px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #EEEEEE;
+}
+/*https://simpleism.net/2013/10/*/
+/*どうやらユニーバルセクタ「*」は、遅くなるようでCSS Lintで禁止とされている*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+a:link, a:visited, a:hover, a:active {
+  color: #0000ff;
+  text-decoration: none;
+}
+
+/*自身で設定するCSS*/
+/*header*/
+.header-title{
+  text-decoration: none;
+  color: black !important;
+  font-size: 38px;
+}
+
+/*main*/
+#dropzone {
+  width: 100%;
+  height: 100px;
+  background: #cfc;
+  color: #9c9;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+#dropzone.dropover {
+  background: #cff;
+  color: #9cc;
+}
+
+#image-file:empty::brefore {
+  color: #ccc;
+  content: "(Files data will be shown here.)";
+}
+
+#image-file img {
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+
+.send-button {
+  width: 100px;
+  height: 30px;
+  background-color: rgb(3, 185, 3);
+  color: white;
+  margin: 5px 0;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+}
+
+.send-button:active{
+    border:1px solid #334c66;
+    background-color: rgb(4, 143, 22);
+    color:#e0ebf5;
+}
+
+/*footer*/
+.footer-copyright{
+  text-align: center;
+}
