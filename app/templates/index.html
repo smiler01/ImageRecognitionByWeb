@@ -1,5 +1,5 @@
-<!DOCTYPE html="ja">
-<html>
+<!DOCTYPE html>
+<html lang="ja">
   <head>
     <title>Picture Recognition</title>
     <!--モバイル環境下の表示方法-->
@@ -21,21 +21,26 @@
     <!--自作css-->
     <link rel="stylesheet" href="../static/css/style.css">
   </head>
-
+  <!--body-->
   <body>
     <header>
       <a href="" class="header-title">Picture Recognition Demo</a>
     </header>
     <main>
-      <form action="http://127.0.0.1:5000/" method="post" enctype="multipart/form-data">
-        <ul id="image-file"></ul>
-        <div id="dropzone" effectAllowed="move">
-          Drag and Drop your picture here!
-        </div>
-        <button type="button" id="recognition" name="recognition" value="recognition" class="send-button">
-          recognition
-        </button>
+      <form action="http://127.0.0.1:5000/send" method="post" enctype="multipart/form-data">
+        <input type="file" id="img_file" name="img_file">
+        <input type="submit" value="送信">
       </form>
+      <p>
+        {% if img_url %}
+          <img src="{{ img_url }}">
+        {% endif %}
+      </p>
+      <p>
+        {% if result %}
+          結果は、{{ result }}です。
+        {% endif %}
+      </p>
     </main>
     <footer>
       <p class="footer-copyright">&copy; 2019 Kanji Yamaguchi</p>
